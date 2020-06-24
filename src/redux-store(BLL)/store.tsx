@@ -1,24 +1,22 @@
 import {createStore, Action, combineReducers, applyMiddleware} from "redux";
 import {ThunkAction} from "redux-thunk";
 import thunkMiddleware from "redux-thunk"
-import { reducer } from "./reduser";
+import {counterReducer} from "./counterReducer";
+import {settingsReducer} from "./settingsReducer";
 
 
-
-let reducers = combineReducers({
-    count: reducer
+let rootReducers = combineReducers({
+    count: counterReducer,
+    settings: settingsReducer
 })
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+const store = createStore(rootReducers, applyMiddleware(thunkMiddleware));
 export default store;
-
-
-
 
 
 // ______type of state___________
 
-type RootReducerType = typeof reducers
+type RootReducerType = typeof rootReducers
 export type AppStateType = ReturnType<RootReducerType>
 
 // ______type of actions___________
