@@ -7,9 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import './api(DAL)/api'
 import {Provider} from 'react-redux';
 import store from "./redux-store(BLL)/store";
+import {HashRouter} from 'react-router-dom';
 
 ReactDOM.render(
-    <Provider store={store}><App/></Provider>,
+    <HashRouter>
+        <Provider store={store}><App/></Provider>
+    </HashRouter>,
     document.getElementById('root')
 );
 
