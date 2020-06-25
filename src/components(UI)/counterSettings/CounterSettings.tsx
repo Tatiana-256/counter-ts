@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import styles from './CounterSettings.module.css'
 import {AppStateType} from "../../redux-store(BLL)/store";
 import {useSelector, useDispatch} from 'react-redux';
@@ -20,11 +20,11 @@ const CounterSettings = (props: PropsType) => {
         dispatch(setCounterSettings())
     }, [])
 
-    const incrementMaxValue = () => {
-        dispatch(incrementCounterMaxValue(maxValue + 1))
+    const incrementMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(incrementCounterMaxValue(Number(e.currentTarget.value)))
     }
-    const incrementStartValue = () => {
-        dispatch(incrementCounterStartValue(startValue + 1))
+    const incrementStartValue = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(incrementCounterStartValue(Number(e.currentTarget.value)))
     }
 
 
@@ -32,17 +32,13 @@ const CounterSettings = (props: PropsType) => {
             <div className={styles.setting}>
                 <div>Start value</div>
                 <div>
-                    <div>{startValue}</div>
-                    <button onClick={incrementStartValue}>Increment</button>
+                    <input value={startValue} onChange={incrementStartValue} type={"number"}/>
                 </div>
             </div>
             <div className={styles.setting}>
                 <div>Max value</div>
                 <div>
-                    <div>{maxValue}</div>
-                    <button onClick={incrementMaxValue}>
-                        Increment
-                    </button>
+                    <input value={maxValue} onChange={incrementMaxValue} type={"number"}/>
                 </div>
             </div>
         </div>
