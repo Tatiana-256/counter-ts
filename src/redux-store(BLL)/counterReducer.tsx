@@ -25,7 +25,6 @@ export type ActionsType = InferActionsTypes<typeof actions>
 
 export const actions = {
     setCounterValue: (value: number) => ({type: "COUNTER/SET_COUNTER_VALUE", value} as const),
-    // incrementCounterValue: (value: number) => ({type: "COUNTER/INCREMENT_VALUE", value} as const),
 }
 
 
