@@ -6,27 +6,23 @@ import {AppStateType} from "./redux-store(BLL)/store";
 import NavigationMenu from './components(UI)/header/NavMenu';
 import Counter from "./components(UI)/counter/Counter";
 import CounterSettings from "./components(UI)/counterSettings/CounterSettings";
-import {Route} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
 
-type PropsType = {
-    value: number,
-}
+type PropsType = {}
 
 const App = (props: PropsType) => {
     return (
         <div className="App">
             <NavigationMenu/>
-            <Route exact path="/counter" component={Counter}/>
-            <Route exact path="/settings" component={CounterSettings}/>
+            <Switch>
+                <Route path="/counter" component={Counter}/>
+                <Route path="/settings" component={CounterSettings}/>
+                <Redirect exact path="/" to={"/counter"}/>
+                <Route path="*" render={() => <div>404 Not found</div>}/>
+            </Switch>
         </div>
     );
 }
 
-const mapStateToProps = (state: AppStateType) => {
-    return {
-        value: state.count.value
-    }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;
