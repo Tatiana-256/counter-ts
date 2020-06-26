@@ -1,9 +1,27 @@
-.container{
+.container {
     display: flex;
     justify-content: center;
 }
 
 
-.setting{
+.setting {
     padding: 40px;
+    position: relative;
+
+}
+
+input {
+    text-align: center;
+    width: 62px;
+    height: 22px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    outline: none;
+}
+
+
+.notification {
+    position: absolute;
+    color: #a90000;
 }
