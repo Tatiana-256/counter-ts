@@ -3,11 +3,13 @@ import {ThunkAction} from "redux-thunk";
 import thunkMiddleware from "redux-thunk"
 import {counterReducer} from "./counterReducer";
 import {settingsReducer} from "./settingsReducer";
+import {appReducer} from "./appReducer";
 
 
 let rootReducers = combineReducers({
     count: counterReducer,
-    settings: settingsReducer
+    settings: settingsReducer,
+    requestStatus: appReducer
 })
 
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware));
