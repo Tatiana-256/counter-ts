@@ -1,9 +1,9 @@
 {
   "counter": {
-    "value": 1
+    "value": 4
   },
   "counter-settings": {
-    "maxValue": 100,
-    "startValue": 5
+    "maxValue": 4,
+    "startValue": 1
   }
 }
